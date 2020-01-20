@@ -1035,6 +1035,14 @@ static NSString * const SFSafariViewControllerFinishedURL = @"sfsafariviewcontro
     return _returnURLScheme;
 }
 
+#pragma mark - Cancel
+
+- (void)cancelProcess
+{
+    [self.safariAuthenticationSession cancel];
+    [self.class handleAppSwitchReturnURL:[NSURL URLWithString:SFSafariViewControllerFinishedURL]];
+}
+
 #pragma mark - BTPayPalApprovalHandler delegate methods
 
 - (void)onApprovalComplete:(NSURL *)url {
