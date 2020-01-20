@@ -246,6 +246,11 @@ typedef NS_ENUM(NSInteger, BTPayPalDriverErrorType) {
 - (void)requestBillingAgreement:(BTPayPalRequest *)request handler:(id<BTPayPalApprovalHandler>)handler
                      completion:(void (^)(BTPayPalAccountNonce * _Nullable tokenizedPayPalAccount, NSError * _Nullable error))completionBlock;
 
+/**
+Forces process cancel. Added for Trading212 usage by the Trading212 team.
+ */
+- (void)cancelProcess;
+
 #pragma mark - Delegate
 
 /**
